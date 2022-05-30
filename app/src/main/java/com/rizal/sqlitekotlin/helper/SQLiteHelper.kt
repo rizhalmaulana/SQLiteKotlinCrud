@@ -81,4 +81,30 @@ class SQLiteHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
         return stdList
     }
 
+    fun updateMurid (std: StudentModel): Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+
+        contentValues.put(ID, std.id)
+        contentValues.put(NAME, std.name)
+        contentValues.put(EMAIL, std.email)
+
+        val success = db.update(TBL_STUDENT, contentValues, "id=" + std.id, null)
+        db.close()
+
+        return success
+    }
+
+    fun hapusMurid (id: Int): Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+
+        contentValues.put(ID, id)
+
+        val success = db.delete(TBL_STUDENT, "id=$id", null)
+        db.close()
+
+        return success
+    }
+
 }

@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var sqliteHelper: SQLiteHelper
     private lateinit var recycleView: RecyclerView
-    private var adapter: StudentAdapter? = null
+    private var studentAdapter: StudentAdapter? = null
     private var std: StudentModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,16 +47,14 @@ class MainActivity : AppCompatActivity() {
         btnLihat.setOnClickListener { lihatMurid() }
         btnUpdate.setOnClickListener { updateMurid() }
 
-        adapter?.setOnClickItem {
-            Toast.makeText(this, it.name, Toast.LENGTH_SHORT).show()
-
+        studentAdapter?.setOnClickItem {
             etEmail.setText(it.email)
             etName.setText(it.name)
 
             std = it
         }
 
-        adapter?.setOnClickDeleteItem {
+        studentAdapter?.setOnClickDeleteItem {
             hapusMurid(it.id)
         }
 
@@ -85,35 +83,35 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initRecycleView() {
-        recycleView.layoutManager = LinearLayoutManager(this)
-        adapter = StudentAdapter()
+        recycleView.apply {
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            studentAdapter = StudentAdapter()
+            adapter = studentAdapter
+        }
 
-        recycleView.adapter = adapter
     }
 
     private fun lihatMurid() {
         val stdlist = sqliteHelper.getAllStudent()
         Log.e(TAG, "lihatMurid: ${stdlist.size}")
 
-        adapter?.addItems(stdlist)
+        studentAdapter?.addItems(stdlist)
     }
 
     private fun hapusMurid(id: Int) {
-        val builder = AlertDialog.Builder(this)
-        builder.setMessage("Apakah kamu yakin ingin menghapus item ini?")
-        builder.setCancelable(true)
-        builder.setPositiveButton("Ya") { dialog, _ ->
-            sqliteHelper.hapusMurid(id)
-            lihatMurid()
+        AlertDialog.Builder(this).apply {
+            setMessage("Apakah kamu yakin ingin menghapus item ini?")
+            setCancelable(true)
+            setPositiveButton("Ya") { dialog, _ ->
+                sqliteHelper.hapusMurid(id)
+                lihatMurid()
 
-            dialog.dismiss()
-        }
-        builder.setNegativeButton("Batal") { dialog, _ ->
-            dialog.dismiss()
-        }
-
-        val alert = builder.create()
-        alert.show()
+                dialog.dismiss()
+            }
+            setNegativeButton("Batal") { dialog, _ ->
+                dialog.dismiss()
+            }
+        }.create().show()
     }
 
     private fun tambahMurid() {

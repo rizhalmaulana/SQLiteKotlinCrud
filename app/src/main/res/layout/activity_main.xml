@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="Tambah"
-            android:textColor="@color/black" />
+            android:textColor="@color/purple_200" />
 
         <com.google.android.material.button.MaterialButton
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="Lihat"
-            android:textColor="@color/black" />
+            android:textColor="@color/purple_200" />
 
         <com.google.android.material.button.MaterialButton
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -91,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="Update"
-            android:textColor="@color/black" />
+            android:textColor="@color/purple_200" />
     </LinearLayout>
 
     <LinearLayout

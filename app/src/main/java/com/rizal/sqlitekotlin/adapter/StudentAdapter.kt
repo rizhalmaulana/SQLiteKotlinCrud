@@ -53,6 +53,10 @@ class StudentAdapter: RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() {
         var button = view.findViewById<MaterialButton>(R.id.btn_hapus)
 
         fun bindView (std: StudentModel) {
+
+            std.let {
+                id.text = it.id.toString()
+            }
             id.text = std.id.toString()
             nama.text = std.name
             email.text = std.email

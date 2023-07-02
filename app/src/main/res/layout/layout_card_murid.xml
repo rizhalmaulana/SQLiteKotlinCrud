@@ -1,44 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:padding="16dp"
-    android:weightSum="1">
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1">
+        android:layout_margin="@dimen/margin_15"
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/text_id"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="Id" />
+            android:orientation="vertical"
+            android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/text_nama"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Nama" />
+            <TextView
+                android:id="@+id/text_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/baloobhai_medium"
+                tools:text="Id" />
 
-        <TextView
-            android:id="@+id/text_email"
+            <TextView
+                android:id="@+id/text_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/baloobhai_medium"
+                tools:text="Username" />
+
+            <TextView
+                android:id="@+id/text_fullname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/baloobhai_medium"
+                tools:text="Fullname" />
+
+            <TextView
+                android:id="@+id/text_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/baloobhai_medium"
+                tools:text="Email" />
+
+            <TextView
+                android:id="@+id/text_salary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/baloobhai_medium"
+                tools:text="Pemasukan Gaji" />
+
+            <TextView
+                android:id="@+id/text_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/baloobhai_medium"
+                tools:text="Gender" />
+
+            <TextView
+                android:id="@+id/text_region"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/baloobhai_medium"
+                tools:text="Region" />
+
+            <TextView
+                android:id="@+id/text_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/baloobhai_medium"
+                tools:text="Alamat" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Email" />
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
+
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:id="@+id/btn_update"-->
+<!--                style="@style/Widget.MaterialComponents.Button.OutlinedButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:text="Update"-->
+<!--                android:textAllCaps="false" />-->
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_hapus"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Hapus"
+                android:textAllCaps="false"
+                android:textColor="@color/red_pink" />
+        </LinearLayout>
+
     </LinearLayout>
 
-    <com.google.android.material.button.MaterialButton
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:id="@+id/btn_hapus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:text="Hapus"
-        android:textAllCaps="false"
-        android:textColor="@color/black" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black_sub"
+        android:layout_margin="@dimen/margin_15"/>
+
 
 </LinearLayout>
